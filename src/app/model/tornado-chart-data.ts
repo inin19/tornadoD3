@@ -55,7 +55,7 @@ export class TornadoChartData {
 
     }
 
-    processGraphData(data: Array<any>) {
+    processGraphData(data: Array<any>, regions?: Array<string>) {
 
     }
 
