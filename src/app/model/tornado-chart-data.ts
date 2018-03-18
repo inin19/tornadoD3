@@ -44,9 +44,9 @@ export class TornadoChartData {
 
         // this.processGraphData(data, ['South'], ['EMPLOYEE']);
 
-        this.demographicAggregateData.forEach(element => {
-            console.log(element.key, element.value , element.genderTotal , element.percentage );
-        });
+        // this.demographicAggregateData.forEach(element => {
+        //     console.log(element.key, element.value , element.genderTotal , element.percentage );
+        // });
 
     }
 
@@ -89,7 +89,6 @@ export class TornadoChartData {
 
         this.demographicAggregateData = this.graphDimensionGroup.reduceSum((d) => d.memberCount).all();
 
-        // this.graphData = this.demographicAggregateData;
 
         // begin to calculate F/M percentage
 
@@ -104,7 +103,11 @@ export class TornadoChartData {
         });
 
 
-        this.demographicAggregateData.forEach(element => {
+        this.graphData = this.demographicAggregateData;
+
+
+
+        this.graphData.forEach(element => {
             if (element.key.gender === TornadoChartData.FEMALE) {
                 element.genderTotal = this.femaleMemberCount;
                 element.percentage = element.value / element.genderTotal;
@@ -119,7 +122,7 @@ export class TornadoChartData {
 
 
 
-    getDemographicAggregateData(): any {
-        return this.demographicAggregateData;
+    getGraphData(): any {
+        return this.graphData;
     }
 }
