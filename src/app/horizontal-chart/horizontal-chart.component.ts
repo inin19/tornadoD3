@@ -17,7 +17,12 @@ export class HorizontalChartComponent implements OnInit {
 
   ngOnInit() {
     this.tornadoChartData = new TornadoChartData(this.jsonData);
-    // console.log(this.jsonData);
+
+    // this.tornadoChartData.processGraphData(this.jsonData, ['South'], ['EMPLOYEE']);
+
+    // this.tornadoChartData.getDemographicAggregateData().forEach(element => {
+    //   console.log(element.key, element.value);
+    // });
   }
 
 }

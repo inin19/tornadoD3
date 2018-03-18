@@ -17,107 +17,459 @@ export class AppComponent implements OnInit, OnChanges {
 
 
   ngOnInit() {
-    this.json1 =
-      [
-        {
-          'region': 'NORTH',
-          'ageGroup': '0-18',
-          'gender': 'F',
-          'memberCount': 2
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '18-35',
-          'gender': 'F',
-          'memberCount': 24
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '35-60',
-          'gender': 'F',
-          'memberCount': 34
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '60+',
-          'gender': 'F',
-          'memberCount': 10
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '0-18',
-          'gender': 'M',
-          'memberCount': 8
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '18-35',
-          'gender': 'M',
-          'memberCount': 30
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '35-60',
-          'gender': 'M',
-          'memberCount': 8
-        },
-        {
-          'region': 'NORTH',
-          'ageGroup': '60+',
-          'gender': 'M',
-          'memberCount': 3
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '0-18',
-          'gender': 'F',
-          'memberCount': 3
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '18-35',
-          'gender': 'F',
-          'memberCount': 34
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '35-60',
-          'gender': 'F',
-          'memberCount': 44
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '60+',
-          'gender': 'F',
-          'memberCount': 12
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '0-18',
-          'gender': 'M',
-          'memberCount': 20
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '18-35',
-          'gender': 'M',
-          'memberCount': 15
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '35-60',
-          'gender': 'M',
-          'memberCount': 4
-        },
-        {
-          'region': 'SOUTH',
-          'ageGroup': '60+',
-          'gender': 'M',
-          'memberCount': 9
-        }
-      ];
+    this.json1 = [
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 2
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 24
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 10
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 30
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 44
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 12
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 20
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 15
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 4
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 9
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 2
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 24
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 10
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 30
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 44
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 12
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 20
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 15
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 4
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 9
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 2
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 24
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 10
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 30
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 44
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 12
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 20
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 15
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 4
+      },
+      {
+        'region': 'South',
+        'relation': 'EMPLOYEE',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 9
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 2
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 24
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 10
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 30
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 8
+      },
+      {
+        'region': 'North',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'F',
+        'memberCount': 3
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'F',
+        'memberCount': 34
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'F',
+        'memberCount': 44
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'F',
+        'memberCount': 12
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '0-18',
+        'gender': 'M',
+        'memberCount': 20
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '18-35',
+        'gender': 'M',
+        'memberCount': 15
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '35-60',
+        'gender': 'M',
+        'memberCount': 4
+      },
+      {
+        'region': 'South',
+        'relation': 'DEPENDENT',
+        'ageGroup': '60+',
+        'gender': 'M',
+        'memberCount': 9
+      }
+     ];
 
-    this.json2 = [
+
+     this.json2 = [
 
     ];
 
