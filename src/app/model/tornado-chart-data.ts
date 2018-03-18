@@ -34,7 +34,7 @@ export class TornadoChartData {
     private demographicAggregateData: any;
     private femaleMemberCount: number;
     private maleMemberCount: number;
-
+    private maxPercentage: number;
 
 
 
@@ -44,9 +44,11 @@ export class TornadoChartData {
 
         // this.processGraphData(data, ['South'], ['EMPLOYEE']);
 
-        // this.demographicAggregateData.forEach(element => {
-        //     console.log(element.key, element.value , element.genderTotal , element.percentage );
-        // });
+        this.demographicAggregateData.forEach(element => {
+            console.log(element.key, element.value, element.genderTotal, element.percentage);
+        });
+
+        console.log(this.maxPercentage);
 
     }
 
@@ -111,6 +113,7 @@ export class TornadoChartData {
             if (element.key.gender === TornadoChartData.FEMALE) {
                 element.genderTotal = this.femaleMemberCount;
                 element.percentage = element.value / element.genderTotal;
+                element.percentage = - element.percentage;
             } else {
                 element.genderTotal = this.maleMemberCount;
                 element.percentage = element.value / element.genderTotal;
@@ -118,11 +121,18 @@ export class TornadoChartData {
             }
         });
 
+
+        this.maxPercentage = d3.max(this.graphData, (d) => Math.abs(d.percentage));
+
     }
 
 
 
     getGraphData(): any {
         return this.graphData;
+    }
+
+    getMaxPercentage(): any {
+        return this.maxPercentage;
     }
 }

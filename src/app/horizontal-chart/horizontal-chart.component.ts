@@ -47,6 +47,10 @@ export class HorizontalChartComponent implements OnInit {
     this.tornadoChartData = new TornadoChartData(this.jsonData);
     this.graphData = this.tornadoChartData.getGraphData();
 
+    // this.graphData.forEach(element => {
+    //   console.log(element.key, element.percentage);
+    // });
+
   }
 
   createChart() {
@@ -63,6 +67,12 @@ export class HorizontalChartComponent implements OnInit {
       .append('g')
       .classed('bars', true)
       .attr('transform', `translate(${this.margin.left},${this.margin.top})`);
+
+
+
+    // create scales
+    this.xScale = d3.scaleLinear()
+      .range([0, this.width]);
 
 
   }
