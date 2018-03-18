@@ -48,8 +48,6 @@ export class TornadoChartData {
         });
 
 
-        console.log(this.reportDimensionGroup.all());
-
 
 
 
