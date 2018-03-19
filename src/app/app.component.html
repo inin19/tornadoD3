@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
+            <div (click)="changeData(1)">json1</div>
+            <div (click)="changeData(2)">json2</div>
             <app-horizontal-chart *ngIf="json" [jsonData]="json"></app-horizontal-chart>
         </div>
     </div>

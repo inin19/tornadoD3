@@ -8,7 +8,7 @@ import * as d3 from 'd3';
   templateUrl: './horizontal-chart.component.html',
   styleUrls: ['./horizontal-chart.component.css']
 })
-export class HorizontalChartComponent implements OnInit {
+export class HorizontalChartComponent implements OnInit, OnChanges {
 
   // need cache
   static ageGroup = ['0-18', '18-35', '35-60', '60+'];
@@ -46,6 +46,13 @@ export class HorizontalChartComponent implements OnInit {
       console.log(element.key, element.percentage);
     });
 
+  }
+
+  ngOnChanges() {
+    if (this.chart) {
+      this.getChartData();
+      this.updateChart(this.jsonData);
+    }
   }
 
   getChartData() {
