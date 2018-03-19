@@ -40,7 +40,7 @@ export class HorizontalChartComponent implements OnInit {
   ngOnInit() {
     this.getChartData();
     this.createChart();
-    // this.updateChart(this.jsonData);
+    this.updateChart(this.jsonData);
 
   }
 
