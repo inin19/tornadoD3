@@ -40,6 +40,7 @@ export class HorizontalChartComponent implements OnInit {
   ngOnInit() {
     this.getChartData();
     this.createChart();
+    // this.updateChart(this.jsonData);
 
   }
 
@@ -72,10 +73,69 @@ export class HorizontalChartComponent implements OnInit {
 
     // create scales
     this.xScale = d3.scaleLinear()
+      .domain([-this.tornadoChartData.getMaxPercentage(), this.tornadoChartData.getMaxPercentage()])
       .range([0, this.width]);
 
+    this.yScale = d3.scaleBand()
+      .domain(TornadoChartData.UKAgeGroup)
+      .range([this.height, 0])
+      .padding(0.2);
+
+
+    // x axis  percentage formatting remove (-) sign
+    const xaxis = d3.axisBottom(this.xScale)
+      .tickFormat((d) => d3.format('.0%')(Math.abs(Number(d))));
+
+
+
+    const yaxis = d3.axisLeft(this.yScale)
+      .tickSize(0);
+    // .tickSizeOuter(0);
+
+
+    this.xAxis = this.chart.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', `translate(0, ${this.height})`)
+      .call(xaxis);
+
+    this.yAxis = this.chart.append('g')
+      .attr('class', 'y axis')
+      .call(yaxis);
+
+
+    // move y axis path to the middle
+    d3.select('.y.axis path')
+      .attr('transform', 'translate(' + this.width / 2 + ',0)');
 
   }
 
+  updateChart(jsonData: Array<any>) {
+    // update data
+    this.tornadoChartData.processGraphData(jsonData);
+    this.graphData = this.tornadoChartData.getGraphData();
 
+    // update scales
+    this.xScale
+      .domain([-this.tornadoChartData.getMaxPercentage(), this.tornadoChartData.getMaxPercentage()]);
+
+    // probabaly not needed
+    this.yScale
+      .domain(TornadoChartData.UKAgeGroup);
+
+
+    // update axis
+
+    const xaxis = d3.axisBottom(this.xScale)
+      .tickFormat((d) => d3.format('.0%')(Math.abs(Number(d))));
+
+    this.xAxis.transition().call(xaxis);
+
+    const yaxis = d3.axisLeft(this.yScale)
+      .tickSize(0);
+
+
+    this.yAxis.transition().call(yaxis);
+    console.log('update');
+
+  }
 }

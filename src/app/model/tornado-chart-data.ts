@@ -13,6 +13,8 @@ export class TornadoChartData {
     static AGEGROUP = 'ageGroup';
     static GENDER = 'gender';
 
+    static UKAgeGroup = ['0-18', '18-35', '35-60', '60+'];
+
     private ndx: any;
 
 
@@ -44,11 +46,11 @@ export class TornadoChartData {
 
         // this.processGraphData(data, ['South'], ['EMPLOYEE']);
 
-        this.demographicAggregateData.forEach(element => {
-            console.log(element.key, element.value, element.genderTotal, element.percentage);
-        });
+        // this.demographicAggregateData.forEach(element => {
+        //     console.log(element.key, element.value, element.genderTotal, element.percentage);
+        // });
 
-        console.log(this.maxPercentage);
+        // console.log(this.maxPercentage);
 
     }
 
