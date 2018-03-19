@@ -42,6 +42,10 @@ export class HorizontalChartComponent implements OnInit {
     this.createChart();
     this.updateChart(this.jsonData);
 
+    this.graphData.forEach(element => {
+      console.log(element.key, element.percentage);
+    });
+
   }
 
   getChartData() {
@@ -133,9 +137,38 @@ export class HorizontalChartComponent implements OnInit {
     const yaxis = d3.axisLeft(this.yScale)
       .tickSize(0);
 
-
     this.yAxis.transition().call(yaxis);
-    console.log('update');
+
+
+
+
+
+    const bars = this.chart.selectAll('.bar')
+      .data(this.graphData);
+
+
+    // remove exiting bars
+    bars.exit().remove();
+
+    // update existing bars
+    this.chart.selectAll('.bar').transition()
+      .attr('y', (d) => this.yScale(d.key.ageGroup))
+      .attr('x', (d) => this.xScale(Math.min(0, d.percentage)))
+      .attr('width', (d) => Math.abs(this.xScale(d.percentage) - this.xScale(0)))
+      .attr('height', this.yScale.bandwidth());
+
+
+    // add new bars
+    bars
+      .enter()
+      .append('rect')
+      .attr('class', function (d) { return 'bar bar--' + (d.percentage < 0 ? 'negative' : 'positive'); })
+      .attr('y', (d) => this.yScale(d.key.ageGroup))
+      .attr('x', (d) => this.xScale(Math.min(0, d.percentage)))
+      .attr('width', (d) => Math.abs(this.xScale(d.percentage) - this.xScale(0)))
+      .attr('height', this.yScale.bandwidth());
+
+
 
   }
 }

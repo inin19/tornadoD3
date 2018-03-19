@@ -1,3 +1,13 @@
 #tornadoChart {
     height: 400px;
 }
+
+
+.bar--positive {
+    fill: #9BCCF5;
+  }
+  
+  .bar--negative {
+    fill: pink;
+  }
+  
