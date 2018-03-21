@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges, ViewChild, Input, ElementRef, ViewEncapsulation } from '@angular/core';
+
+import { HostListener } from '@angular/core';
 import { TornadoChartData } from '../model/tornado-chart-data';
 import * as d3 from 'd3';
 
@@ -32,6 +34,8 @@ export class HorizontalChartComponent implements OnInit, OnChanges {
   private yInnerScale: any;
   private xAxis: any;
   private yAxis: any;
+
+  private svg: any;
 
 
 
@@ -71,11 +75,11 @@ export class HorizontalChartComponent implements OnInit, OnChanges {
     this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
 
 
-    const svg = d3.select('#tornadoChart').append('svg')
+    this.svg = d3.select('#tornadoChart').append('svg')
       .attr('width', element.offsetWidth)
       .attr('height', element.offsetHeight);
 
-    this.chart = svg
+    this.chart = this.svg
       .append('g')
       .classed('bars', true)
       .attr('transform', `translate(${this.margin.left},${this.margin.top})`);
@@ -120,7 +124,52 @@ export class HorizontalChartComponent implements OnInit, OnChanges {
 
   }
 
+  @HostListener('document:keyup', ['$event'])
+  onKeyUp(ev: KeyboardEvent) {
+    // do something meaningful with it
+    console.log(`The user just pressed ${ev.key}!`);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    console.log('resize');
+
+    const element = this.chartContainer.nativeElement;
+    // this.svg
+    // .attr('width', element.offsetWidth)
+    // .attr('height', element.offsetHeight);
+    // console.log(element.offsetWidth);
+
+    this.updateChart(this.jsonData);
+  }
+
   updateChart(jsonData: Array<any>) {
+
+    const element = this.chartContainer.nativeElement;
+    this.width = element.offsetWidth - this.margin.left - this.margin.right;
+    this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
+
+    this.svg
+      .attr('width', element.offsetWidth)
+      .attr('height', element.offsetHeight);
+
+
+    this.xScale
+      .range([0, this.width]);
+
+    this.yScale
+      .range([this.height, 0]);
+
+
+    this.xAxis
+      .attr('transform', `translate(0, ${this.height})`);
+
+    d3.select('.y.axis path')
+      .attr('transform', 'translate(' + this.width / 2 + ',0)');
+
+
+
+
     // update data
     this.tornadoChartData.processGraphData(jsonData);
     this.graphData = this.tornadoChartData.getGraphData();
